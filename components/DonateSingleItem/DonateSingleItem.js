@@ -14,7 +14,7 @@ const DonateSingleItem = props => {
         </View>
         <Image style={style.image} source={{uri: props.uri}} />
       </View>
-      <Header title={props.donationTitle} type={3} />
+      <Header title={props.donationTitle} type={2} />
       <Header title={'$' + props.price.toFixed(2)} type={3} />
     </View>
   );

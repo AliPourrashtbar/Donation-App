@@ -12,6 +12,7 @@ export const User = createSlice({
   reducers: {
     updateFirstName: (state, action) => {
       state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
     },
   },
 });

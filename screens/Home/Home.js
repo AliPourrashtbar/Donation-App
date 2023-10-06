@@ -26,7 +26,11 @@ const Home = () => {
         }}
       /> */}
       <Header title={user.firstName + ' ' + user.lastName} />
-      <TouchableOpacity></TouchableOpacity>
+      <TouchableOpacity
+        style={{borderWidth: 1, padding: 10}}
+        onPress={() =>
+          dispatch(updateFirstName({firstName: 'Ali', lastName: 'Rashtbar'}))
+        }></TouchableOpacity>
       <ScrollView horizontal={true}>
         <DonateSingleItem
           uri="https://static.vecteezy.com/system/resources/thumbnails/000/347/962/small/Free-Cactus-Vector-.png"

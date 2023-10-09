@@ -4,6 +4,7 @@ const initialState = {
   firstName: 'Ali',
   lastName: 'Pourrashtbar',
   userId: 1,
+  profileImage: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
 };
 
 export const User = createSlice({
@@ -14,8 +15,11 @@ export const User = createSlice({
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
     },
+    resetToInitialState: () => {
+      return initialState;
+    },
   },
 });
 
-export const {updateFirstName} = User.actions;
+export const {updateFirstName, resetToInitialState} = User.actions;
 export default User.reducer;

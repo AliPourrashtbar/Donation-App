@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import style from './style';
 import Search from '../../components/Search/Search';
@@ -13,12 +13,31 @@ const Home = () => {
 
   return (
     <View style={style.container}>
-      <View style={style.header}>
-        <Text style={style.introText}>Hello,</Text>
-        <View style={style.userName}>
-          <Header title={user.firstName + ' ' + user.lastName[0] + '.👋'} />
+      <ScrollView>
+        <View style={style.header}>
+          <View>
+            <Text style={style.introText}>Hello,</Text>
+            <View style={style.userName}>
+              <Header title={user.firstName + ' ' + user.lastName[0] + '.👋'} />
+            </View>
+          </View>
+          <Image
+            source={{uri: user.profileImage}}
+            style={style.profileImage}
+            resizeMode={'contain'}
+          />
         </View>
-      </View>
+        <View>
+          <Search />
+        </View>
+        <TouchableOpacity>
+          <Image
+            style={style.highLightedImage}
+            source={require('../../assets/img/highLighted.png')}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };

@@ -8,6 +8,9 @@ const style = StyleSheet.create({
   header: {
     marginTop: 20,
     marginHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   introText: {
     color: '#636776',
@@ -16,6 +19,14 @@ const style = StyleSheet.create({
     letterSpacing: 0.02,
     fontWeight: '400',
   },
-  userName: {},
+  userName: {marginTop: 5},
+  profileImage: {
+    width: 50,
+    height: 50,
+  },
+  highLightedImage: {
+    width: '100%',
+    height: 170,
+  },
 });
 export default style;

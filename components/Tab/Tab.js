@@ -12,12 +12,11 @@ const Tab = props => {
   };
   return (
     <TouchableOpacity
-      onPress={() => props.onPress()}
-      disabled={props.isDisabled}
+      onPress={() => props.onPress(props.tabId)}
       style={[style.Tab, props.isInactive && style.inactiveTab, tabWidth]}>
       <Text
         onTextLayout={event => {
-          setWidth(event.nativeEvent.lines[0].width);
+          setWidth(event.nativeEvent.lines[0]?.width);
         }}
         ref={textRef}
         style={[style.title, props.isInactive && style.inactiveTitle]}>
@@ -34,5 +33,6 @@ Tab.protoTypes = {
   title: PropTypes.string.isRequired,
   isInactive: PropTypes.bool,
   onPress: PropTypes.func,
+  tabId: PropTypes.number.isRequired,
 };
 export default Tab;

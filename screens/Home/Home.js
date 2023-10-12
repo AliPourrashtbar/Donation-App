@@ -1,4 +1,11 @@
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
 import React from 'react';
 import style from './style';
 import Search from '../../components/Search/Search';
@@ -6,9 +13,15 @@ import DonateSingleItem from '../../components/DonateSingleItem/DonateSingleItem
 import Header from '../../components/Header/Header';
 import {useSelector, useDispatch} from 'react-redux';
 import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
-
+import Tab from '../../components/Tab/Tab';
+import {
+  resetCategories,
+  updateSelectedCategoryId,
+} from '../../redux/reducers/Categories';
 const Home = () => {
   const user = useSelector(state => state.user);
+  const categories = useSelector(state => state.categories);
+  console.log(categories);
   const dispatch = useDispatch();
 
   return (
@@ -37,6 +50,23 @@ const Home = () => {
             resizeMode="contain"
           />
         </TouchableOpacity>
+        <View style={style.categories}>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            data={categories.categories}
+            renderItem={({item}) => (
+              <View key={item.categoryId} style={style.categoryItem}>
+                <Tab
+                  tabId={item.categoryId}
+                  onPress={value => dispatch(updateSelectedCategoryId(value))}
+                  title={item.name}
+                  isInactive={item.categoryId !== categories.selectedCategoryId}
+                />
+              </View>
+            )}
+          />
+        </View>
       </ScrollView>
     </View>
   );

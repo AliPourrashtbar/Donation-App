@@ -5,7 +5,7 @@ const style = StyleSheet.create({
     backgroundColor: '#2979F2',
     padding: 18,
     borderRadius: 50,
-    marginHorizontal: 20,
+    marginHorizontal: 12,
   },
   inactiveTab: {
     backgroundColor: '#fbfbfb',

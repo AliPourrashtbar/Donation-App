@@ -5,7 +5,6 @@ import style from './style';
 const Tab = props => {
   const [width, setWidth] = useState(0);
   const textRef = useRef(null);
-  console.log(width);
   const paddingHorizantal = 35;
   const tabWidth = {
     width: paddingHorizantal * 2 + width,

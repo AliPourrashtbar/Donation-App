@@ -13,6 +13,8 @@ export const User = createSlice({
   reducers: {
     updateFirstName: (state, action) => {
       state.firstName = action.payload.firstName;
+    },
+    updateLastName: (state, action) => {
       state.lastName = action.payload.lastName;
     },
     resetToInitialState: () => {
@@ -21,5 +23,6 @@ export const User = createSlice({
   },
 });
 
-export const {updateFirstName, resetToInitialState} = User.actions;
+export const {updateFirstName, updateLastName, resetToInitialState} =
+  User.actions;
 export default User.reducer;

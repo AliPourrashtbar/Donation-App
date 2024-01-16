@@ -39,5 +39,9 @@ const style = StyleSheet.create({
     marginHorizontal: 34,
     marginVertical: 12,
   },
+  donationItem: {
+    marginHorizontal: 24,
+    marginTop: 12,
+  },
 });
 export default style;

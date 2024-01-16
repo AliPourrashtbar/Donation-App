@@ -7,16 +7,14 @@ const Badge = ({title}) => {
   const [width, setWidth] = useState(0);
   const textRef = useRef(null);
 
-  const paddingHorizontal = 33;
-  const calculateWidth = () => {
-    const textWidth = textRef.current?.measure(width => width) || 0;
-    setWidth(textWidth);
-  };
+  const paddingHorizontal = 20;
 
   return (
     <View style={[style.Badge, {width: paddingHorizontal * 2 + width}]}>
       <Text
-        onLayout={calculateWidth}
+        onTextLayout={event => {
+          setWidth(event.nativeEvent.lines[0].width);
+        }}
         ref={textRef}
         style={style.title}
         numberOfLines={1}

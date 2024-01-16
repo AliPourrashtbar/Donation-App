@@ -6,6 +6,7 @@ const style = StyleSheet.create({
     padding: 13,
     borderRadius: 50,
     marginHorizontal: 20,
+    opacity: 0.7,
   },
   title: {
     color: '#FFFFFF',

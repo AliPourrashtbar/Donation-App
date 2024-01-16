@@ -13,6 +13,7 @@ import DonateSingleItem from '../../components/DonateSingleItem/DonateSingleItem
 import Header from '../../components/Header/Header';
 import {useSelector, useDispatch} from 'react-redux';
 import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
+import {resetDonations} from '../../redux/reducers/Donations';
 import Tab from '../../components/Tab/Tab';
 import {
   resetCategories,
@@ -22,12 +23,19 @@ import {
 const Home = () => {
   const user = useSelector(state => state.user);
   const categories = useSelector(state => state.categories);
+  const donations = useSelector(state => state.donations);
   const dispatch = useDispatch();
-
+  const [donationItems, setDonationItems] = useState([]);
   const [isLoadingCategories, setIsLoadingCategories] = useState(false);
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
   const categoryPageSize = 4;
+  useEffect(() => {
+    const items = donations.items.filter(value =>
+      value.categoryIds.includes(categories.selectedCategoryId),
+    );
+    setDonationItems(items);
+  }, [categories.selectedCategoryId]);
 
   useEffect(() => {
     setIsLoadingCategories(true);
@@ -110,6 +118,27 @@ const Home = () => {
             )}
           />
         </View>
+        {donationItems.length > 0 && (
+          <View style={style.donationItem}>
+            {donationItems.map(value => (
+              <DonateSingleItem
+                onPress={selectedDonationId => {
+                  console.log(selectedDonationId);
+                }}
+                donationItemId={value.donationItemId}
+                donationTitle={value.name}
+                badgeTitle={
+                  categories.categories.filter(
+                    val => val.categoryId === categories.selectedCategoryId,
+                  )[0].name
+                }
+                uri={value.image}
+                price={parseFloat(value.price)}
+                key={value.donationItemId}
+              />
+            ))}
+          </View>
+        )}
       </ScrollView>
     </View>
   );

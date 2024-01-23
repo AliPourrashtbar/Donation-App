@@ -16,6 +16,7 @@ const configuration = {
   key: 'root',
   storage: AsyncStorage,
   version: 1,
+  blacklist: ['categories'],
 };
 
 const persistedReducer = persistReducer(configuration, rootReducer);

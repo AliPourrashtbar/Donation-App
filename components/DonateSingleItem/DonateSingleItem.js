@@ -18,7 +18,7 @@ const DonateSingleItem = props => {
       <View style={{position: 'absolute', zIndex: 100, top: 8, left: -13}}>
         <Badge title={props.badgeTitle} />
       </View>
-      <Header title={props.donationTitle} type={2} />
+      <Header title={props.donationTitle} type={2} numberOfLines={1} />
       <Header title={'$' + props.price.toFixed(2)} type={3} />
     </View>
   );

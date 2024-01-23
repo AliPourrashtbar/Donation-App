@@ -19,7 +19,11 @@ const Header = props => {
 
   return (
     <View>
-      <Text style={styleToApply()}>{props.title}</Text>
+      <Text
+        style={styleToApply()}
+        numberOfLines={props.numberOfLines ? props.numberOfLines : null}>
+        {props.title}
+      </Text>
     </View>
   );
 };
@@ -30,6 +34,7 @@ Header.default = {
 Header.propTypes = {
   title: PropTypes.string,
   type: PropTypes.number,
+  numberOfLines: PropTypes.number,
 };
 
 export default Header;

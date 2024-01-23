@@ -37,11 +37,17 @@ const style = StyleSheet.create({
   },
   categoryHeader: {
     marginHorizontal: 34,
-    marginVertical: 12,
+    marginVertical: 10,
   },
   donationItem: {
-    marginHorizontal: 24,
-    marginTop: 12,
+    marginHorizontal: 18,
+    marginTop: 10,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  singleDonationItem: {
+    maxWidth: '49%',
   },
 });
 export default style;

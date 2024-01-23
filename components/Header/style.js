@@ -17,7 +17,7 @@ const style = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     fontWeight: '600',
-    color: '#000',
+    color: '#00d2ff',
   },
 });
 

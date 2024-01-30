@@ -203,7 +203,8 @@ const initialState = {
       price: '13.83',
     },
   ],
-  selectedDonationItem: 1,
+  selectedDonationId: null,
+  selectedDonationInfo: {},
 };
 
 const Donations = createSlice({
@@ -212,9 +213,13 @@ const Donations = createSlice({
   reducers: {
     resetDonations: () => {
       return initialState;
+      7;
     },
     updateSelectedDonationId: (state, action) => {
-      state.selectedDonationItem = action.payload;
+      state.selectedDonationId = action.payload;
+      state.selectedDonationInfo = state.items.find(
+        item => item.donationItemId === action.payload,
+      );
     },
   },
 });

@@ -36,18 +36,18 @@ const style = StyleSheet.create({
     marginTop: 10,
   },
   categoryHeader: {
-    marginHorizontal: 34,
+    marginHorizontal: 20,
     marginVertical: 10,
   },
   donationItem: {
-    marginHorizontal: 18,
+    marginHorizontal: 12,
     marginTop: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
   singleDonationItem: {
-    maxWidth: '49%',
+    maxWidth: '50%',
   },
 });
 export default style;

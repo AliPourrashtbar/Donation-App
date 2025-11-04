@@ -213,7 +213,6 @@ const Donations = createSlice({
   reducers: {
     resetDonations: () => {
       return initialState;
-      7;
     },
     updateSelectedDonationId: (state, action) => {
       state.selectedDonationId = action.payload;
